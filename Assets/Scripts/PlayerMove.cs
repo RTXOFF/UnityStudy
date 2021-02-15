@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
     SpriteRenderer sprite;
+
     public float MoveSpeed;
     public float MaxSpeed;
     public float JumpPower;
