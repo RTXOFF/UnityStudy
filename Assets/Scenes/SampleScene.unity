@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 195948835}
   - component: {fileID: 195948838}
   m_Layer: 8
-  m_Name: Tilemap
+  m_Name: Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,7 +294,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -366,7 +366,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -391,6 +391,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 4c65235617f93b847bea8d6ba81a8305, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 56fa5020fd365454ea6fa0f648f9f28f, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: -7195857219196117165, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d,
@@ -398,11 +400,10 @@ Tilemap:
   - m_RefCount: 7
     m_Data: {fileID: 7747521981604104666, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 687841166402244278, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1069651330361946853, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d,
-      type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -5840791259172913533, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d,
       type: 3}
@@ -417,6 +418,9 @@ Tilemap:
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 5909788076698272099, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1069651330361946853, guid: f0e38d7d88db8dc439f4ec78e7ea3a0d,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 16
@@ -609,6 +613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 195948834}
+  - {fileID: 899348416}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -626,7 +631,7 @@ GameObject:
   - component: {fileID: 771486884}
   - component: {fileID: 771486886}
   - component: {fileID: 771486887}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -770,7 +775,6 @@ MonoBehaviour:
   MoveSpeed: 20
   MaxSpeed: 8
   JumpPower: 100
-<<<<<<< HEAD:2D_BE/Assets/Scenes/SampleScene.unity
   ReactPower: 300
 --- !u!1 &899348415
 GameObject:
@@ -949,8 +953,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
-=======
->>>>>>> parent of 155b966 (Add Player Damaged Event):Assets/Scenes/SampleScene.unity
 --- !u!1 &1566865508
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,9 +967,9 @@ GameObject:
   - component: {fileID: 1566865512}
   - component: {fileID: 1566865511}
   - component: {fileID: 1566865514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

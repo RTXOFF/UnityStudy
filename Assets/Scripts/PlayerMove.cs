@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     public float MoveSpeed;
     public float MaxSpeed;
     public float JumpPower;
+    public float ReactPower;
 
     private void Awake()
     {
@@ -59,5 +60,35 @@ public class PlayerMove : MonoBehaviour
         //isJump
         if (collision.gameObject.tag == "Platform")
             anim.SetBool("isJumping", false);
+
+        //Damage
+        if (collision.gameObject.tag == "Enemy")
+        {
+            OnDamaged();
+        }
+    }
+    
+    void OnDamaged()
+    {
+        //Change Layer (Immortal Active)
+        gameObject.layer = LayerMask.NameToLayer("PlayerDamaged");
+
+        //Change Color
+        sprite.color = Color.red;
+
+        //Reaction Force
+        float ReactDir = rigid.velocity.normalized.x * -1;
+        rigid.AddForce(new Vector2(ReactDir, 1) * Time.deltaTime * ReactPower, ForceMode2D.Impulse);
+        
+        //Animation
+        anim.SetTrigger("doDamaged");
+
+        Invoke("OffDamaged", 1);
+    }
+
+    void OffDamaged()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Player");
+        sprite.color = Color.white;
     }
 }
