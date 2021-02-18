@@ -7,6 +7,7 @@ public class MonsterMove : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
     SpriteRenderer sprite;
+    CapsuleCollider2D collid;
     public int nextMove; //행동지표 변수
 
     private void Awake()
@@ -14,6 +15,7 @@ public class MonsterMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        collid = GetComponent<CapsuleCollider2D>();
         Think();
     }
 
@@ -54,5 +56,28 @@ public class MonsterMove : MonoBehaviour
         sprite.flipX = !sprite.flipX;
         CancelInvoke(); //Invoke 되고 있는 함수 멈춤!
         Invoke("Think", 5);
+    }
+
+    public void OnDamaged()
+    {
+        //Sprite Red
+        sprite.color = Color.red;
+
+        //Sprite Flip Y
+        sprite.flipY = true;
+
+        //Collider Disable
+        collid.enabled = false;
+
+        //Die Effect Jump
+        rigid.AddForce(Vector2.up * Time.deltaTime * 200, ForceMode2D.Impulse);
+
+        //Destroy
+        Invoke("DeActive", 5);
+    }
+
+    void DeActive()
+    {
+        gameObject.SetActive(false);
     }
 }
